@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Heating Earth</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>The earth is heating up</h1>
+
+
+
+
+</body>
+<script src = "three.js-master/build/three.min.js"></script>
+<script src = "GLTFLoader.js"></script>
+<script type="text/javascript" crossorigin="anonymous">
+	console.log("Bananan");
+
+
+	let scene, camera, renderer;
+	function init(){
+		scene = new THREE.Scene();
+		scene.backgroundColor = new THREE.Color(0xdddddd);
+
+		camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 50);
+		hlight = new THREE.AmbientLight(0x404040, 100);
+		scene.add(hlight)
+
+		renderer = new THREE.WebGLRenderer({antialias: true});
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		document.body.appendChild(renderer.domElement);
+
+		let loader = new THREE.GLTFLoader();
+		loader.load("EarthSphereMode.gltf", function(gltf){
+			scene.load(gltf.scene);
+			renderer.render(scene, camera);
+		})
+
+	}
+	init();
+</script>
+</html>
