@@ -4,7 +4,11 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js"
 
 let scene, camera, renderer, sphere;
 let x = 1;
+let dx = 1
 
+
+let dxSlider = document.getElementById("CLincrease")
+console.log(dxSlider)
 
 function setx(value){
 	x = 1
@@ -41,9 +45,9 @@ function init(){
 	controls.update();
 
 	function animate() {
-		x += 0.00001
+		x += (0.00001 * dxSlider.value)
 		sphere.scale.set( x, x,x)
-		console.log(x)
+		console.log()
 		requestAnimationFrame(animate);
 		controls.update();
 		renderer.render(scene, camera)
