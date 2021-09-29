@@ -4,5 +4,51 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  
+}
+
+body {
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: #ff9966;
+}
+::-webkit-scrollbar {
+  width: 1;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #1e1e1e; 
+  width: 3px;
+  border-radius: 4px;
+  padding: 2px;
+  border: none;
+}
+
+
+
+.home{
+  width: 100%;
+  height: 55vh;
+  
+  align-items: center;
+  justify-content: center;
+}
+.home  div{
+  margin-top:30vh;
+  /*text-align: center;*/
+  justify-content: center;
+  max-width: 400px;
+  margin-left: 50%;
+
+  transform: translate(-50%,-10%);
+}
+
+.control{
+  display: flex;
+  position: absolute;
+  right: 10vw;
+  padding-top: 200px;
+  flex-direction: column;
+  
 }

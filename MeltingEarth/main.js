@@ -6,10 +6,19 @@ let scene, camera, renderer, sphere;
 let x = 1;
 
 
-
 function setx(value){
-	x = value
+	x = 1
 }
+
+
+
+let resetButton = document.getElementById('ResetButton');
+resetButton.onclick = () => {
+	setx(1)
+}
+
+
+
 
 
 function init(){	
@@ -19,13 +28,14 @@ function init(){
 	camera.rotation.y = 45/180 * Math.PI;
 	camera.position.x = 30;
 	camera.position.y = 10;
-	camera.position.z = 20;
+	camera.position.z = 0.5;
 
 
 	
 	renderer = new THREE.WebGLRenderer({antialias: true});
-	renderer.setSize(window.innerWidth -100, window.innerHeight - 100);
-	document.body.appendChild(renderer.domElement);
+	renderer.setSize(window.innerWidth - 30, window.innerHeight - 30);
+	let earthDisplay = document.getElementById("Earth");
+	earthDisplay.appendChild(renderer.domElement);
 
 	let controls = new OrbitControls(camera, renderer.domElement);
 	controls.update();
@@ -41,7 +51,7 @@ function init(){
 	}
 
 
-	let hlight = new THREE.AmbientLight(0x121008, 30);
+	let hlight = new THREE.AmbientLight(0x101008, 30);
 	let directionalLight = new THREE.DirectionalLight(0x555555, 10);
 	directionalLight.position.set(0,100,0);
 	directionalLight.castShadow =true;

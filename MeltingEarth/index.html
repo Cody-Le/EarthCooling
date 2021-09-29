@@ -3,18 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="./style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/main.js"></script>
     <title>Vite App</title>
   </head>
   <body>
     <div id="app">
-      <div class="home">The earth is melting</div>
-      
+      <div class="home">
+        <div>
+          <h1>The earth is melting</h1>
+          <p>As the green house effect warms up earth, the water contained as ice in both polar ice caps are turning into water, raising the sea level.</p>
+          <b>This is only one side of the danger that lies a head.</b>
+        </div>
+        
+      </div>
+      <div id = "Earth">
+        <div class="control" id="control"><button id = "ResetButton">Reset</button>
+          <label for="Carbon Emission">CO2</label>
+          <input type="range" name = "Carbon Emission">
+          <label for="Sea Level Increase Rate">Sea level</label>
+          <input type="range" name = "Sea Level Increase Rate">
+        
+        </div>
+      </div>
     </div>
-    <div>
-      <canvas id="Earth"></canvas>
-    </div>
-    <script type="module" src="/main.js"></script>
+    
+   
+    
  
   </body>
 </html>
