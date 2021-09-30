@@ -52,3 +52,28 @@ body {
   flex-direction: column;
   
 }
+
+#Graph{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+
+#Graph h3{
+  max-width: 400px;
+  font-weight: 700;
+}
+
+#Plot{
+  margin-top: 100px;
+  margin-bottom: 50px;
+  width: 60vw;
+  height: auto;
+  box-shadow: 0px 0px 30px rgb(80, 24, 2);
+}
+
+#citation{
+  background-color:#2c3e50;
+}

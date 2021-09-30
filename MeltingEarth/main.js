@@ -82,7 +82,7 @@ function init(){
 		earth.scale.set(-0.4,-0.4,-0.4);
 		earth.frustumCulled = false;
 		//earth.material = new THREE.MeshStandardMaterial({color: 0x3ec43b});
-		let geometry = new THREE.SphereGeometry(7.75 * x,40,40);
+		let geometry = new THREE.SphereGeometry(7.70 * x,40,40);
 		let material = new THREE.MeshStandardMaterial({color: 0x0022ff});
 		sphere = new THREE.Mesh(geometry, material);
 		
