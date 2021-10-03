@@ -4,10 +4,15 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js"
 
 let scene, camera, renderer, sphere;
 let radius = 1;
-let dt = 1/600;//dt is how many year passed in one frame
+let dt = 1;//dt is how many year passed in one frame
 let CO2Level = document.getElementById("CO2Slider")
-
+let timePassed = 0;
 console.log(CO2Level)
+
+
+//Major cities for considering the effect of water rising
+listOfCities = {"Moscow":156, "Newyork": 10, "Toronto": 76, "Tokyo": 40, "Seoul": 38, "Lagos": 41.1, "London": 11, "Paris": 35, "Sao Paulo": 760}
+
 
 
 //Function that take in CO2 in gigatons to estimate sealevel in mm
@@ -17,12 +22,11 @@ function CO2ToSeaLevelEstimate(CO2){
 }
 
 
-let dxSlider = document.getElementById("CLincrease")
-console.log(dxSlider)
 
 let resetButton = document.getElementById('ResetButton');
 resetButton.onclick = () => {
 	radius = 1
+	timePassed = 0
 }
 
 
@@ -52,14 +56,18 @@ function init(){
 
 	let controls = new OrbitControls(camera, renderer.domElement);
 	controls.update();
-
+ 
 	function animate() {
-		let seaLevelRise = CO2ToSeaLevelEstimate(CO2Level.value) ;
+		let seaLevelRise = CO2ToSeaLevelEstimate(document.getElementById("CO2Slider").value) ;
 		//console.log(seaLevelRise)
-		document.getElementById("CO2Log").innerHTML = CO2Level.value + " Giga Tones of CO2"
+		timePassed += dt;
+		document.getElementById("TimePassed").innerHTML = timePassed + " Years Passed"
+
+		document.getElementById("CO2Log").innerHTML = CO2Level.value + " Giga Tones of CO2";
 		document.getElementById("CLincrease").value = seaLevelRise * 100;
-		console.log((seaLevelRise/6,378) * dt)
-		radius += seaLevelRise/6,378 * dt;
+		//console.log((seaLevelRise/6378))
+		radius += seaLevelRise/6378 * dt;
+		console.log(radius)
 
 		radius = Math.min(Math.max(1, radius),1.2)
 	
@@ -93,17 +101,17 @@ function init(){
 
 
 	let loader = new GLTFLoader();
-	loader.load("/EarthSphere.gltf", function(gltf){
+	loader.load("/EarthSphere5.gltf", function(gltf){
 	console.log(gltf)
-		let earth = gltf.scene.children[0];
-		earth.scale.set(-0.4,-0.4,-0.4);
+		let earth = gltf.scene.children.at(-1);
+		earth.scale.set(0.4,-0.4,-0.4);
 		earth.frustumCulled = false;
 		//earth.material = new THREE.MeshStandardMaterial({color: 0x3ec43b});
 		let geometry = new THREE.SphereGeometry(7.70 * radius,40,40);
 		let material = new THREE.MeshStandardMaterial({color: 0x0022ff});
 		sphere = new THREE.Mesh(geometry, material);
 		
-		sphere.position.set(0,0.2,-0.55)
+		sphere.position.set(0,0,0)
 		scene.add(sphere)
 		scene.add(gltf.scene);
 		animate()	
