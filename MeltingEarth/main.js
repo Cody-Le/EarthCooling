@@ -10,8 +10,14 @@ let timePassed = 0;
 console.log(CO2Level)
 
 
+
+let notification = document.getElementsByClassName("notification");
 //Major cities for considering the effect of water rising
-listOfCities = {"Moscow":156, "Newyork": 10, "Toronto": 76, "Tokyo": 40, "Seoul": 38, "Lagos": 41.1, "London": 11, "Paris": 35, "Sao Paulo": 760}
+let listOfCities = {"Moscow":156, "Newyork": 10, "Toronto": 76, "Tokyo": 40, "Seoul": 38, "Lagos": 41.1, "London": 11, "Paris": 35, "SaoPaulo": 760}
+
+
+
+
 
 
 
@@ -27,6 +33,9 @@ let resetButton = document.getElementById('ResetButton');
 resetButton.onclick = () => {
 	radius = 1
 	timePassed = 0
+	for (const [key, value] of Object.entries(listOfCities)){
+		document.getElementById(key).className = "notDrowned";
+	}
 }
 
 
@@ -44,11 +53,11 @@ function init(){
 	camera.position.x = 30;
 	camera.position.y = 10;
 	camera.position.z = 0.5;
-
+	
 
 	
 	renderer = new THREE.WebGLRenderer({antialias: true});
-	renderer.setSize(window.innerWidth - 30, window.innerHeight - 30);
+	renderer.setSize(window.innerWidth , window.innerHeight);
 	let earthDisplay = document.getElementById("Earth");
 	let element = renderer.domElement
 	element.className = "EarthScene"
@@ -66,11 +75,20 @@ function init(){
 		document.getElementById("CO2Log").innerHTML = CO2Level.value + " Giga Tones of CO2";
 		document.getElementById("CLincrease").value = seaLevelRise * 100;
 		//console.log((seaLevelRise/6378))
+		
 		radius += seaLevelRise/6378 * dt;
 		console.log(radius)
 
 		radius = Math.min(Math.max(1, radius),1.2)
-	
+		for (const [key, value] of Object.entries(listOfCities)){
+			if (1 + (value * 1.5)/6371 < radius){
+			
+				let object = document.getElementById(key)
+				if (object.className == "notDrowned"){
+					object.className = "drowned";
+				}
+			}
+		}
 		sphere.scale.set( radius, radius,radius)
 	
 		requestAnimationFrame(animate);

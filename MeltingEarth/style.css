@@ -54,13 +54,19 @@ body {
   padding-top: 200px;
   flex-direction: column;
   
+
+  
 }
 
-.control p{
-  font-weight: bold;
-  font-size: 20px;
-
+.notification{
+  display: flex;
+  position: absolute;
+  left: 10vw;
+  font-size:15px;
+  padding-top:200px;
+  flex-direction: column;
 }
+
 
 #Graph{
   display: flex;
@@ -97,4 +103,12 @@ body {
 .EarthScene{
   margin: None;
 
+}
+
+.notDrowned{
+  color: #2c3e50;
+}
+
+.drowned{
+  color: #c9b7ad;
 }

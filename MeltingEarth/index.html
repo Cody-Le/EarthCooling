@@ -20,17 +20,29 @@
       </div>
       <div id = "Earth">
         <div class = "notification">
-
+          
+          <div id = "Newyork" class="notDrowned"><h3>Newyork: 10m</h3></div>
+          <div id = "London" class="notDrowned"><h3>London: 11m</h3></div>
+          <div id = "Paris" class="notDrowned"><h3>Paris: 35m</h3></div>
+          <div id = "Seoul" class="notDrowned"><h3>Seoul: 38m</h3></div> 
+          <div id = "Tokyo" class="notDrowned"><h3>Tokyo: 40m</h3></div>
+          <div id = "Lagos" class="notDrowned"><h3>Lagos: 41.1m</h3></div>
+          <div id = "Toronto" class="notDrowned"><h3>Toronto: 76.5m</h3></div>
+          <div id = "Moscow" class="notDrowned"><h3>Moscow: 156m</h3></div>
+          <div id = "SaoPaulo" class="notDrowned"><h3>Sau Paulo:760m</h3></div>
+          
         </div>
+        <div class = "EarthScene" id = "EarthScene"></div>
         <div class="control" id="control">
           <p id = "CO2Log"></p>
          
           <input type="range" name = "Carbon Emission" id="CO2Slider" min="50.0" max="400.0" value = "80" step="1"/>
           <label for="Sea Level Increase Rate">Sea Level Increase Rate</label>
-          <input type="range" name = "Sea Level Increase Rate" id ="CLincrease" min="-10.0" max="20.0" value = "1.0" step="0.01" disabled="disabled"/>
+          <input type="range" name = "Sea Level Increase Rate" id ="CLincrease" min="-10.0" max="80.0" value = "1.0" step="0.01" disabled="disabled"/>
           <p id="TimePassed">0 years</p>
           <button id = "ResetButton">Reset</button>
         </div>
+
       </div>
       <div id = "citation">
         <h2>Not meant to 100% scientifically accurate but for mainly illustration purposes</h2>
