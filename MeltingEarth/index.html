@@ -20,24 +20,21 @@
       </div>
       <div id = "Earth">
         <div class="control" id="control">
-          <label for="Carbon Emission">CO2</label>
-          <input type="range" name = "Carbon Emission" id="CO2Slider" min="0.0" max="5.0" value = "1.0" step="0.01"/>
+          <p id = "CO2Log"></p>
+         
+          <input type="range" name = "Carbon Emission" id="CO2Slider" min="50.0" max="200.0" value = "80" step="1"/>
           <label for="Sea Level Increase Rate">Sea Level Increase Rate</label>
-          <input type="range" name = "Sea Level Increase Rate" id ="CLincrease" min="0.0" max="5.0" value = "1.0" step="0.01">
+          <input type="range" name = "Sea Level Increase Rate" id ="CLincrease" min="-10.0" max="20.0" value = "1.0" step="0.01" disabled="disabled"/>
           <button id = "ResetButton">Reset</button>
         </div>
       </div>
-      <div id = Graph>
-          <img src="./Graph.png" alt="Plot is not loaded" id = "Plot">
-          <h3>Graph show positive correlation between CO2 emmision level
-            
-            in tones (<a href="https://ourworldindata.org/co2-emissions">ourworlddata, annual global CO2 emmision</a>)
-             and changes in sea level in millimeters (<a href="https://earthdata.nasa.gov/">NASA, GSML</a>)</h3>
-      </div>
       <div id = "citation">
-        <h2>Sources used:
-
-        </h2>
+        <h2>Not meant to 100% scientifically accurate but for mainly illustration purposes</h2>
+        <h2>Sources used:</h2>
+        <a href="https://ourworldindata.org/co2-emissions">ourworlddata, annual global CO2 emmision</a>
+        <a href="https://earthdata.nasa.gov/">NASA, GSML</a>
+        <a href="https://visibleearth.nasa.gov/images/73934/topography">NASA, earth height map</a>
+        
       </div>
     </div>
     
