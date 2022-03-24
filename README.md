@@ -9,9 +9,9 @@ Project worked for the nasa space app challenge
 This project are meant to show that earth is melting apart in a water relative to an extraplotation of correlation of ice to CO2 output. 
 
 ## Features
-* Ability to pause and play
-* Any cells pattern within a limited space
-* Ability to change and visualized the basic behavior of the game
+* Slider to a just CO2 emission
+* See how that CO2 is shown on earth over time with graph
+* Feels the terror as we see all the cities we have grown to love drown in water
 
 
 
