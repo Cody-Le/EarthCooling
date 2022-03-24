@@ -21,7 +21,7 @@ This project are meant to show that earth is melting apart in a water relative t
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Cody-Le/Conway-Game-Of-Life.git
+   git clone https://github.com/Cody-Le/MeltingEarth.git
    ```
 2. Move to the right folder
    ```sh
@@ -36,3 +36,4 @@ This project are meant to show that earth is melting apart in a water relative t
 
 
 ## Demo
+demo is not yet available
